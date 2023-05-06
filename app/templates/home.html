@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>Home</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}"
+
+{% endblock %}
+
+{% block body %}
+
+<div id="navbar">
+    <div id="top">
+        <h1>Booking.com</h1>
+        <div>
+            <a class="liner" href="https://join.booking.com/?lang=en-gb&utm_source=topbar&utm_medium=frontend&amp;label=gen173nr-1DCAEoggI46AdIM1gEaGyIAQGYAQm4ARfIAQzYAQPoAQGIAgGoAgO4AtKB3pYGwAIB0gIkNzEzODAzMGQtZDFhYi00MGM2LTg5NmItM2YyMTJlMmJmZjFk2AIE4AIB&amp;aid=304142">List your property</a>
+            <button id="Register">Register</button>
+            <button id="signin">Sign in</button>
+        </div>
+    </div>
+    <div id="stay">
+        <a >
+            <img src="https://th.bing.com/th/id/OIP.ymDpf62hm6huwQAhvIQ8rQHaHa?pid=ImgDet&w=221&h=221&c=7&dpr=1.25"/>
+            <p>Stays</p>
+        </a>
+        <a >
+            <img src="https://th.bing.com/th/id/OIP.U_m-OU2SDVmx2YWndf5zNwHaHa?w=203&h=203&c=7&r=0&o=5&dpr=1.25&pid=1.7"/>
+            <p>Flights</p>
+        </a>
+        <a >
+            <img src="https://th.bing.com/th/id/OIP.Puxw8NB8iO58Y_E-jBMrAgHaID?w=197&h=214&c=7&r=0&o=5&dpr=1.25&pid=1.7"/>
+            <p>Flighr + Hotel</p>
+        </a>
+        <a>
+            <img src="https://image.shutterstock.com/image-vector/car-silhouette-260nw-408492268.jpg"/>
+            <p>Car rentals</p>
+        </a>
+        <a>
+            <img src="https://image.shutterstock.com/image-vector/silhouette-atraktsion-colorful-ferris-wheel-600w-1188352369.jpg"/>
+            <p>Attractions</p>
+        </a>
+        <a>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Zusatzschild_800_-_Taxi_(300x150)%2C_StVO_1976.svg/301px-Zusatzschild_800_-_Taxi_(300x150)%2C_StVO_1976.svg.png"/>
+            <p>Airport taxis</p>
+        </a>
+    </div>
+    <div id="findtxt">
+        <h1>Find your next stay</h1>
+        <h4>search low prices on hotels,homes and much more...</h4>
+    </div>
+</div>
+<table>
+    <th>
+        <form action="/home" method="POST">
+            <td><input name="location" class="Place" type="text" placeholder="Where are you going?"></td>
+            <td>
+                <input name="checkin" type="date" class="date" placeholder="check-in"/>
+                <input name="checkout" type="date" class="date" placeholder="check-out"/>
+            </td>
+            <td>
+                <input name="adult" class="available" type="number" placeholder="adult"/>
+                <input name="children" class="available" type="number" placeholder="children"/>
+                <input name="room" class="available" type="number" placeholder="room"/>
+            </td>
+            <td><button class="search" type="submit">Search</button></td>
+        </form>
+    </th>
+</table>
+<div id="trwork">
+<input type="checkbox">
+<p>I'm travelling for work</p>
+</div>
+
+<div id="covid">
+   <img src="https://th.bing.com/th/id/OIP.QV9tJ17E2Yi1xWOQBVKJ-QHaEi?pid=ImgDet&w=221&h=135&c=7&dpr=1.25" alt="">
+   <p>Get the advice you need.Check the latest COVID-19 restrictions before you travel.<a href="https://www.booking.com/covid-19.html?aid=304142&label=gen173nr-1DCAEoggI46AdIM1gEaGyIAQGYAQm4ARfIAQzYAQPoAQGIAgGoAgO4AtKB3pYGwAIB0gIkNzEzODAzMGQtZDFhYi00MGM2LTg5NmItM2YyMTJlMmJmZjFk2AIE4AIB">Learn more</a></p>
+</div>
+
+{% for location in locations %}
+<div id="discount">
+    <img src={{ location['icon'] }}>
+    <div>
+    <h3>{{ location['name'] }}</h3>
+    <p>{{ location['address'] }}</p>
+    <button>Explore deals</button>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,673 @@
+#navbar {
+  height: 350px;
+  /* border:solid red; */
+  background-color: rgb(5, 55, 120);
+  color: white;
+}
+#navbar > #top {
+  width: 80%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  /* border:solid blue; */
+  margin: auto;
+  align-items: center;
+}
+#navbar > #top > div {
+  /* border:solid red; */
+  width: 50%;
+  height: 35px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+#navbar > #top > div > a:nth-child(1) {
+  /* border:0; */
+  background-color: rgb(5, 55, 120);
+  color: white;
+  margin-right: -10px;
+  text-decoration: none;
+}
+#navbar > #top > div > a:nth-child(2) {
+  /* border-radius: 100px; */
+  border: 0;
+  background-color: rgb(5, 55, 120);
+  margin-right: -40px;
+}
+#navbar > #top > div > a:nth-child(2) > img {
+  width: 23px;
+  border-radius: 50px;
+  background-color: rgb(5, 55, 120);
+  margin-top: 5px;
+}
+.qmark {
+  color: white;
+  border: solid white;
+  border-radius: 50px;
+  padding: 3px;
+}
+.liner {
+  color: white;
+  border: solid rgb(190, 190, 190);
+  padding: 8px;
+  text-decoration: none;
+  /* margin-right: -10px; */
+}
+
+#top > div > button {
+  background-color: white;
+  color: rgb(46, 46, 163);
+  padding: 10px 20px;
+  font-size: 14px;
+  border-color: rgb(115, 183, 211);
+  margin-left: -15px;
+}
+
+#stay img {
+  width: 20px;
+  height: 20px;
+  margin-top: 15px;
+  margin-right: 5px;
+}
+#stay > a {
+  display: flex;
+  color: white;
+  text-decoration: none;
+
+  cursor: pointer;
+}
+#stay > a:hover {
+  border-radius: 25px;
+  padding: 0px 10px;
+  border: solid rgb(244, 243, 243);
+}
+
+#stay {
+  width: 50%;
+  /* border:solid blue; */
+  margin-left: 150px;
+  display: flex;
+  justify-content: space-between;
+}
+#findtxt {
+  /* border:solid blue; */
+  width: 50%;
+  height: 120px;
+  margin-left: 150px;
+  margin-top: 35px;
+}
+#findtxt > h1 {
+  font-size: 50px;
+  margin-top: -10px;
+}
+#findtxt > h4 {
+  font-size: 30px;
+  margin-top: -30px;
+}
+.date::before {
+  color: #000000;
+  content: attr(placeholder);
+  font-weight: bold;
+  font-size: 15px;
+}
+.date {
+  color: #ffffff;
+  width: 100px;
+  padding: 10px;
+  border: 0px;
+}
+.date:focus {
+  outline: none;
+  border: 0px;
+}
+
+.available {
+  width: 70px;
+  padding: 10px;
+  border: 0px;
+  font-size: 15px;
+}
+.available::placeholder {
+  font-weight: bold;
+  color: black;
+}
+.available:focus {
+  outline: none;
+  border: 0px;
+}
+.Place::placeholder {
+  font-weight: bold;
+}
+.Place {
+  padding: 5px 50px 5px 5px;
+  border: 0px;
+  font-size: 15px;
+}
+.Place:focus {
+  outline: none;
+  border: 0px;
+}
+.search {
+  border: 0px;
+  background-color: rgb(42, 134, 254);
+  color: white;
+  font-size: 20px;
+}
+
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 78%;
+  margin-top: -35px;
+  margin-left: 150px;
+
+  text-align: center;
+}
+table td {
+  border: 5px solid rgb(255, 198, 27);
+  background-color: white;
+}
+table td:nth-child(5) {
+  background-color: rgb(42, 134, 254);
+}
+
+#trwork {
+  display: flex;
+  margin-left: 150px;
+}
+#trwork > input {
+  width: 20px;
+}
+#covid {
+  display: flex;
+  margin-left: 150px;
+  /* border:solid red; */
+  width: 76%;
+  padding: 15px;
+  height: 60px;
+  align-items: center;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+#covid > img {
+  width: 50px;
+  height: 30px;
+  margin-top: 10px;
+  margin-right: 20px;
+}
+#covid > p > a {
+  text-decoration: none;
+  color: blue;
+}
+#discount {
+  /* border:solid red; */
+  width: 78%;
+  margin-left: 150px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  display: flex;
+  margin-top: 20px;
+}
+#discount > img {
+  /* width: 120px;
+  height: 120px; */
+  margin: 20px;
+  background-color: #000000;
+}
+#discount > div {
+  margin-top: 30px;
+}
+#discount > div > button {
+  padding: 10px;
+  color: white;
+  background-color: rgb(42, 134, 254);
+  border: 0px;
+}
+
+#exploreindia {
+  width: 78%;
+  /* border:solid red; */
+  height: 320px;
+  margin-left: 150px;
+  line-height: 10px;
+  margin-top: 30px;
+}
+#exploreindia > div {
+  display: grid;
+  grid-template-columns: repeat(6, 200px);
+  grid-template-rows: repeat(1, 300px);
+}
+/* #exploreindia{
+
+  } */
+#exploreindia > div > div > img {
+  width: 175px;
+}
+#img {
+  width: 300px;
+  height: 200px;
+  background: url("https://cf.bstatic.com/xdata/images/region/square250/49646.webp?k=b7f38878b9164ee38e0b99c4d4646dbea76b7bf4add8464b1aa75e4c9d0efc6e&o=");
+  background-blend-mode: screen;
+}
+#largeimg {
+  width: 78%;
+  height: 300px;
+  /* border:solid red; */
+  display: grid;
+  grid-template-columns: repeat(2, 580px);
+  gap: 12px;
+  margin-left: 150px;
+  margin-top: 20px;
+}
+#largeimg > div:nth-child(1) {
+  height: 300px;
+  line-height: 10px;
+  color: rgb(255, 255, 255);
+  padding: 10px;
+
+  background-image: url("https://th.bing.com/th/id/OIP.ja2jEUw8VbJkvGcZ4L8I5gHaE6?w=304&h=202&c=7&r=0&o=5&dpr=1.25&pid=1.7");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  font-weight: bold;
+  /* border:solid blue; */
+  /* width:40%; */
+}
+#largeimg > div:nth-child(2) {
+  height: 300px;
+  line-height: 10px;
+  color: rgb(255, 255, 255);
+  box-shadow: inset 0px 30px 90px -10px rgb(7, 46, 96);
+
+  background-image: url("https://3.bp.blogspot.com/-OdaYI2PVP60/WIW24cpdOOI/AAAAAAAAMDM/rOgDt-J5l1cy1ABo7zAGEYvuUKBAc-d_QCLcB/s1600/4923.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 10px;
+  font-weight: bold;
+  /* position: relative; */
+  /* border:solid blue; */
+  /* width:40%; */
+}
+#largeimg2 {
+  width: 78%;
+  height: 300px;
+  /* border:solid red; */
+  display: grid;
+  grid-template-columns: repeat(3, 382px);
+  gap: 12px;
+  margin-left: 150px;
+  margin-top: 30px;
+}
+#largeimg2 > div:nth-child(1) {
+  height: 280px;
+  line-height: 10px;
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  box-shadow: inset 0px 30px 90px -10px rgb(7, 46, 96);
+
+  background-image: url("https://cf.bstatic.com/xdata/images/city/square250/971346.webp?k=40eeb583a755f2835f4dcb6900cdeba2a46dc9d50e64f2aa04206f5f6fce5671&o=");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  font-weight: bold;
+  /* border:solid blue; */
+}
+#largeimg2 > div:nth-child(2) {
+  height: 280px;
+  line-height: 10px;
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  box-shadow: inset 0px 30px 90px -10px rgb(7, 46, 96);
+
+  background-image: url("https://th.bing.com/th/id/R.898336e340edf307c0ab6d59cbce2342?rik=V1pExqN9GCSYOQ&riu=http%3a%2f%2fwww.blog.weekendthrill.com%2fwp-content%2fuploads%2f2016%2f05%2f1-24.jpg&ehk=M0Mdo6%2bd%2fYNpt%2fLq5dY%2bkEzn%2flSsroi8LUoJTERK0w0%3d&risl=1&pid=ImgRaw&r=0");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  font-weight: bold;
+  /* border:solid blue; */
+}
+#largeimg2 > div:nth-child(3) {
+  height: 280px;
+  line-height: 10px;
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  font-weight: bold;
+
+  box-shadow: inset 0px 30px 90px -10px rgb(7, 46, 96);
+
+  background-image: url("https://im.whatshot.in/img/2020/Jun/swaminarayan-cropped-1591099308-1592805143.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  /* border:solid blue; */
+}
+
+#browsepro {
+  width: 78%;
+  height: 350px;
+  /* border:solid red; */
+  margin-left: 150px;
+  margin-top: 30px;
+}
+#browsepro > h1 {
+  margin-top: -5px;
+  margin-bottom: 15px;
+}
+#browsepro > div {
+  /* border:solid blue; */
+  height: 290px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+#browsepro > div > div {
+  line-height: 10px;
+}
+#browsepro > div > div > p {
+  color: black;
+}
+#browsepro > div > div > img {
+  width: 284px;
+}
+#inspiration {
+  width: 78%;
+  height: 390px;
+  /* border:solid red; */
+
+  margin-left: 150px;
+  margin-top: 30px;
+}
+#inspiration > div {
+  /* border:solid blue; */
+  display: grid;
+  grid-template-columns: repeat(3, 382px);
+  gap: 12px;
+}
+#inspiration > div > div:nth-child(1) {
+  height: 280px;
+  line-height: 20px;
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  box-shadow: inset 10px -110px 60px -10px rgb(9, 33, 65);
+
+  background-image: url("https://media-cdn.tripadvisor.com/media/vr-splice-j/09/1b/52/fa.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  font-weight: bold;
+  /* border:solid blue; */
+}
+#inspiration > div > div:nth-child(2) {
+  height: 280px;
+  line-height: 20px;
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  box-shadow: inset 10px -110px 60px -10px rgb(9, 33, 65);
+
+  background-image: url("https://www.visittnt.com/blog/wp-content/uploads/2019/07/rajasthani-cuisine.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  font-weight: bold;
+  /* border:solid blue; */
+}
+#inspiration > div > div:nth-child(3) {
+  height: 280px;
+  line-height: 20px;
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  box-shadow: inset 10px -110px 60px -10px rgb(9, 33, 65);
+
+  background-image: url("https://bstatic.com/xdata/images/xphoto/1182x887/161583118.jpg?k=1104ac35dee174a45f4c023d6015cb29e75e60a6fd52e0040805b12e80f232d0&o=?size=S");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  font-weight: bold;
+  /* border:solid blue; */
+}
+#inspiration > div > div > h2 {
+  margin-top: 180px;
+}
+#inspiration > div > div > h2 {
+  color: rgb(248, 248, 248);
+}
+#inspiration > div > div > p {
+  color: rgb(248, 248, 248);
+}
+#cont {
+  cursor: pointer;
+}
+#cont:hover {
+  /* width:380px */
+  zoom: 110%;
+}
+
+#largeimg3 {
+  width: 78%;
+  height: 330px;
+  /* border:solid red; */
+  display: grid;
+  grid-template-columns: repeat(2, 580px);
+  gap: 12px;
+  margin-left: 150px;
+  margin-top: 20px;
+}
+#largeimg3 > div:nth-child(1) {
+  height: 300px;
+  line-height: 10px;
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  box-shadow: inset 0px -120px 80px -50px rgb(9, 33, 65);
+  background-image: url("https://www.travelweekly.co.uk/images/cmstw/original/easid-30845.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  font-weight: bold;
+  /* border:solid blue; */
+  /* width:40%; */
+}
+#largeimg3 > div:nth-child(2) {
+  height: 300px;
+  line-height: 15px;
+  color: rgb(255, 255, 255);
+  box-shadow: inset 0px -120px 80px -50px rgb(9, 33, 65);
+
+  background-image: url("https://th.bing.com/th/id/R.2011c8c349269d64fd64a58681bf083c?rik=JKaaMf16%2b2cO2w&riu=http%3a%2f%2fluxurypools.com%2fwp-content%2fuploads%2f2021%2f08%2fthumbnail_363-Bond-Brooklyn-Crush-Rooftop-Pool.jpg&ehk=yq7Mr16v0bfjG1uZNcmnSSjqbuAO6NX30DiBsC9JtXU%3d&risl=&pid=ImgRaw&r=0");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 10px;
+  font-weight: bold;
+  /* position: relative; */
+  /* border:solid blue; */
+}
+#largeimg3 > div {
+  cursor: pointer;
+}
+#largeimg3 > div:hover {
+  zoom: 110%;
+}
+#largeimg3 > div > h2 {
+  margin-top: 240px;
+}
+#connectpepl {
+  /* border:solid red; */
+  width: 70%;
+  height: 490px;
+  margin-left: 150px;
+}
+#connectpepl > div {
+  /* border:solid blue; */
+  height: 405px;
+  display: grid;
+  grid-template-columns: repeat(3, 280px);
+  gap: 15px;
+}
+/* #connectpepl>div>div{
+    border:solid green;
+      
+} */
+#connectpepl > div > div > img {
+  width: 100%;
+}
+#connectpepl > div > div > h3 {
+  color: black;
+  line-height: 10px;
+}
+#connectpepl > div > div > p {
+  color: black;
+  line-height: 10px;
+}
+#discount {
+  /* border:solid red; */
+  width: 70%;
+  height: 200px;
+  margin-left: 150px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+#discount > div > button {
+  background-color: white;
+  color: blue;
+  border: solid rgb(148, 148, 250);
+  margin-right: 20px;
+  margin-top: 15px;
+}
+#discount > div > a {
+  text-decoration: none;
+}
+#tem {
+  display: grid;
+  grid-template-columns: 1;
+}
+ul {
+  display: flex;
+}
+
+#hoders {
+  width: 70%;
+  /* border:solid red; */
+  height: 300px;
+  display: grid;
+  grid-template-columns: repeat(5, 200px);
+  grid-template-rows: repeat(4, 60px);
+  gap: 10px;
+  margin-left: 150px;
+}
+#destination > button:nth-child(2) {
+  margin-left: 150px;
+}
+#destination > h1 {
+  margin-left: 150px;
+}
+#destination > button {
+  margin-right: 50px;
+  margin-bottom: 50px;
+  padding: 10px;
+
+  background-color: white;
+  border: 0;
+  cursor: pointer;
+}
+#destination > button:hover {
+  border-radius: 15px;
+  padding: 20px;
+  color: rgb(57, 57, 212);
+  border-color: solid rgb(14, 58, 236);
+  background-color: rgb(222, 241, 251);
+}
+#hoders > a {
+  text-decoration: none;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+#savemoney {
+  /* border:solid red; */
+  height: 250px;
+  text-align: center;
+  background-color: rgb(29, 35, 107);
+  padding-top: 10px;
+}
+#savemoney > h3 {
+  font-size: 30px;
+  color: white;
+}
+#savemoney > p {
+  margin-top: -20px;
+  margin-bottom: 35px;
+  color: white;
+}
+#savemoney > input {
+  padding: 15px;
+  width: 400px;
+}
+#savemoney > button {
+  padding: 15px;
+  background-color: rgb(45, 127, 250);
+  color: white;
+}
+#nav2 {
+  /* border:solid red; */
+  height: 70px;
+  border-bottom: 2px solid white;
+  background-color: rgb(31, 31, 163);
+}
+#nav2 > button {
+  margin-top: 25px;
+  margin-left: 700px;
+  background-color: rgb(31, 31, 163);
+  border: solid white;
+  color: white;
+  padding: 7px;
+}
+#ankerhold {
+  height: 40px;
+  /* border:solid red; */
+  background-color: rgb(31, 31, 163);
+}
+#ankerhold > div {
+  width: 70%;
+  margin: auto;
+  height: 40px;
+  /* border:solid red; */
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 10px;
+}
+#ankerhold > div > a {
+  color: white;
+  margin-bottom: 40px;
+}
+
+body > a {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: bold;
+}
+body > p {
+  margin-top: 80px;
+}
+.plast {
+  text-align: center;
+}
+#endimg {
+  width: 60%;
+  text-align: center;
+  margin-top: 55px;
+  display: flex;
+  /* justify-content: center; */
+  justify-content: space-around;
+  margin-left: 300px;
+}
+#endimg > img {
+  width: 100px;
+}
