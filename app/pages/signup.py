@@ -5,4 +5,4 @@ class Signup:
         pass
 
     def serve(self):
-        return render_template("sign_up.html", name="Signup")
+        return render_template("signup.html", name="Signup")

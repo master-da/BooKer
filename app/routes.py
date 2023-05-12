@@ -16,10 +16,12 @@ def home():
 def hotels():
     return Hotel().serve()
 
-@app.route("/signup")
+@app.route("/signup", methods=["GET", "POST"])
 def signup():
+    print("signup")
     return Signup().serve()
 
-@app.route("/login")
+@app.route("/login", methods=["GET", "POST"])
 def login():
+    print("login")
     return Login().serve()

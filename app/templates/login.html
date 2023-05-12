@@ -1,183 +1,32 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HTML 5 Boilerplate</title>
-  </head>
-  <body>
-    yo this works 
-  </body>
-</html> -->
+{% extends 'base.html' %} {% block head %}
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>loginpage</title>
-    <style>
-      #navbar {
-        /* border:solid red; */
-        height: 60px;
-        display: flex;
-        background-color: rgb(5, 55, 120);
-      }
-      #but {
-        margin-left: 50px;
-        border-radius: 50px;
-        margin-top: 15px;
-        margin-bottom: 15px;
-        background-color: rgb(5, 55, 120);
-        color: white;
-        border-color: white;
-      }
-      #navbar > div > img {
-        width: 30px;
-        margin-left: 800px;
-        border-radius: 50px;
-        margin-top: 15px;
-      }
-      #navbar > a {
-        color: white;
-        font-size: 25px;
-        font-weight: bold;
-        margin-left: 250px;
-        margin-top: 13px;
-      }
-      #inputsec {
-        /* border:solid red; */
-        width: 450px;
-        padding-left: 10px;
-        margin-left: 600px;
-        margin-top: 100px;
-      }
+<title>loginpage</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
 
-      #inputsec > h2 {
-        margin-top: 0px;
-        font-size: 30px;
-        font-weight: bold;
-      }
-      #inputsec > input {
-        width: 300px;
-        padding: 10px;
-        margin-top: 5px;
-        margin-bottom: 20px;
-      }
-      #inputsec > button {
-        padding: 10px;
-        width: 323px;
-        margin-top: 15px;
-        color: white;
-        font-size: 15px;
-        background-color: rgb(8, 96, 190);
-        border: 0px;
-      }
+{% endblock %} {% block body %}
+<div id="navbar">
+  <a>Booker.com</a>
+</div>
+<form id="inputsec" action="/login" method="POST">
+  <h2>Enter your account information</h2>
+  <p>Please enter your Booker.com account information</p>
+  <p></p>
 
-      #inputsec > p:nth-child(2) {
-        margin-top: -20px;
-        margin-bottom: 30px;
-      }
-      #signuplogo {
-        width: 340px;
-        /* border:solid red; */
-        height: 70px;
-        margin-left: 600px;
-      }
-      #signuplogo > div > img {
-        width: 80px;
-        height: 70px;
-        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-      }
-      #signuplogo > div {
-        display: flex;
-        justify-content: space-evenly;
-      }
-      body > h3 {
-        margin-left: 670px;
-        color: rgb(8, 123, 254);
-        margin-top: 50px;
-      }
-      body > p {
-        width: 400px;
-        margin-left: 570px;
-        margin-top: 50px;
-        text-align-last: center;
-        color: rgb(166, 161, 161);
-      }
-      body > p > a {
-        color: rgb(8, 123, 254);
-      }
-      .lastp {
-        width: 300px;
-        margin-left: 620px;
-        color: rgb(166, 161, 161);
-      }
-      .or {
-        margin-left: 150px;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="navbar">
-      <a>Booker.com</a>
-    </div>
-    <div id="inputsec">
-      <h2>Enter your password</h2>
-      <p>Please enter your Booker.com password for</p>
-      <p></p>
+  <label for="">Email</label><br />
+  <input id="email" name="email" type="email" /><br />
+  <label for="">Password</label><br />
+  <input id="pass" name="pass" type="password" /><br />
+  <button id="signin" name="submit">Sign in</button>
+  <p class="or">or</p>
+  <button name="to_signup">Sign Up to a new account</button>
+</form>
 
-      <label for="">Email</label><br />
-      <input id="logMail" type="Enter email here" /><br />
-      <label for="">Password</label><br />
-      <input id="logPass" type="password" /><br />
-      <button id="signin">Sign in</button>
-      <p class="or">or</p>
-      <button>Sign in with a verification link</button>
-    </div>
+<h3>Forgotten your password?</h3>
 
-    <h3>Forgotten your password?</h3>
+<p>
+  By signing in or creating an account, you agree with ou
+  <a>Terms & conditions</a> and <a>Privacy statement</a>
+</p>
+<p class="lastp">All rights reserved. Copyright (2023 - *) - Booker.com™</p>
 
-    <p>
-      By signing in or creating an account, you agree with ou
-      <a>Terms & conditions</a> and <a>Privacy statement</a>
-    </p>
-    <p class="lastp">
-      All rights reserved. Copyright (2023 - *) - Booker.com™
-    </p>
-  </body>
-  <script>
-    let Loginpage = JSON.parse(localStorage.getItem("signup")) || [];
-    let Loginarr = JSON.parse(localStorage.getItem("login")) || [];
-    let EMail;
-    let PAss;
-
-    document.querySelector("#signin").addEventListener("click", Signinfun);
-
-    function Signinfun() {
-      EMail = document.querySelector("#logMail").value;
-      PAss = document.querySelector("#logPass").value;
-
-      Loginpage.forEach(function (elem, index) {
-        //event.preventDefault();
-        if (elem.Email === EMail && elem.Pass == PAss) {
-          alert("Login Succsesfull");
-          Loginarr.push(elem);
-          //return true;
-          // event.preventDefault();
-          // window.location.href="mens.html"
-          localStorage.setItem("login", JSON.stringify(Loginarr));
-          window.location.href = "daytwo.html";
-        } else if (EMail == "" || PAss == "") {
-          alert("Please fill details");
-
-          // return false;
-        } else if (elem.Email != EMail || elem.Pass != PAss) {
-          alert("Wrong detail");
-        }
-      });
-    }
-  </script>
-</html>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block head %}
+<title>signup</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}">
+
+{% endblock %} {% block body %}
+<div id="navbar">
+  <a>Booker.com</a>
+</div>
+<div id="inputsec">
+  <h2>Sign in or create an account</h2>
+  <label for="">Enter Email</label><br />
+  <input id="email" type="email" placeholder="enter email here" /><br />
+  <label for="">Enter password</label><br />
+  <input id="pass" type="password" placeholder="enter password" />
+  <button id="butn">Continue with email</button>
+  <p>or use one of these options</p>
+</div>
+
+<h3>More ways to sign in</h3>
+
+<p>
+  By signing in or creating an account, you agree with ou
+  <a>Terms & conditions</a> and <a>Privacy statement</a>
+</p>
+<p class="lastp">All rights reserved. Copyright (2023 - *) - Booker.com™</p>
+{% endblock %}
