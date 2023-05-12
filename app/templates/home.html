@@ -14,8 +14,8 @@
         <h1>Booking.com</h1>
         <div>
             <a class="liner" href="https://join.booking.com/?lang=en-gb&utm_source=topbar&utm_medium=frontend&amp;label=gen173nr-1DCAEoggI46AdIM1gEaGyIAQGYAQm4ARfIAQzYAQPoAQGIAgGoAgO4AtKB3pYGwAIB0gIkNzEzODAzMGQtZDFhYi00MGM2LTg5NmItM2YyMTJlMmJmZjFk2AIE4AIB&amp;aid=304142">List your property</a>
-            <button id="Register">Register</button>
-            <button id="signin">Sign in</button>
+            <a href="/signup"><button id="Register">Register</button></a>
+            <a href="/login"><button id="signin">Sign in</button></a>
         </div>
     </div>
     <div id="stay">
@@ -51,7 +51,7 @@
 </div>
 <table>
     <th>
-        <form action="/home" method="POST">
+        <form action="/" method="POST">
             <td><input name="location" class="Place" type="text" placeholder="Where are you going?"></td>
             <td>
                 <input name="checkin" type="date" class="date" placeholder="check-in"/>
@@ -82,7 +82,7 @@
     <div>
     <h3>{{ location['name'] }}</h3>
     <p>{{ location['address'] }}</p>
-    <button>Explore deals</button>
+    <a href="/hotel"><button>Explore deals</button></a>
     </div>
 </div>
 {% endfor %}
