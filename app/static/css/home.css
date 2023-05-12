@@ -215,7 +215,7 @@ table td:nth-child(5) {
 #discount > div {
   margin-top: 30px;
 }
-#discount > div > button {
+#discount > div > a > button {
   padding: 10px;
   color: white;
   background-color: rgb(42, 134, 254);

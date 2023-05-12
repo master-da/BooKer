@@ -37,3 +37,50 @@ class FourSquareApi:
 
         return ret
             
+    def getPlaceDetails(self, fsq_id: str) -> dict:
+        # https://api.foursquare.com/v3/places/4c6238d358810f4795db061e?fields=photos%2Ctips%2Ctel%2Cemail%2Cwebsite%2Csocial_media
+        apiUrl = "https://api.foursquare.com/v3/places/" + fsq_id
+        params = {
+            "fields": "photos,tips,tel,email,social_media", #website,    # Only the required fields
+        }
+        response = requests.get(apiUrl, params=params, headers=self.header)
+        response.encoding = 'unicode_escape'
+        response = response.json()
+
+        # print(response)
+
+        ret = {
+            "photos": [],
+            "tips": [],
+            "tel": "",
+            "email": "",
+            # "website": "",
+            "social_media": {},
+        }
+        try:
+            for photo in response['photos']:
+                ret['photos'].append(photo['prefix'] + "original" + photo['suffix'])
+        except Exception as e:
+            print(e)
+
+        try:
+            for tip in response['tips']:
+                ret['tips'].append(tip['text'])
+        except Exception as e:
+            print(e)
+
+        try: ret['tel'] = response['tel']
+        except Exception as e: ret['tel'] = ''
+
+        try: ret['email'] = response['email']
+        except Exception as e: ret['email'] = ''
+
+        # try: ret['website'] = response['website']
+        # except Exception as e: ret['website'] = ''
+
+        try: ret['social_media'] = response['social_media']
+        except Exception as e: ret['social_media'] = ''
+
+        # print(ret)
+
+        return ret

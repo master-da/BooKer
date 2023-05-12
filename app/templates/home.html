@@ -51,7 +51,7 @@
 </div>
 <table>
     <th>
-        <form action="/" method="POST">
+        <form action="/home" method="POST">
             <td><input name="location" class="Place" type="text" placeholder="Where are you going?"></td>
             <td>
                 <input name="checkin" type="date" class="date" placeholder="check-in"/>
@@ -82,7 +82,7 @@
     <div>
     <h3>{{ location['name'] }}</h3>
     <p>{{ location['address'] }}</p>
-    <a href="/hotel"><button>Explore deals</button></a>
+    <a href="/hotel?fsq_id={{ location['fsq_id'] }}"><button>Explore deals</button></a>
     </div>
 </div>
 {% endfor %}
