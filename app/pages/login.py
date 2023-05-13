@@ -6,12 +6,14 @@ class Login:
 
     def serve(self):
         if request.method == 'POST':
-            self.handlePostReq()
+            return self.handlePostReq()
         
-        return render_template("login.html", name="Login")
+        return render_template("login.html")
     
     def handlePostReq(self):
         if 'to_signup' in request.form:
-            print("to_signup")
-            redirect(url_for('signup'))
+            return redirect(url_for('signup'))
+        elif 'signin' in request.form:
+            if 'email' not in request.form or 'pass' not in request.form:
+                return render_template("login.html", error="Please enter both email and password")
     

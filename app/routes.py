@@ -1,4 +1,4 @@
-from app import app, render_template, request, hotelApi
+from app import app, render_template, request, hotelApi, redirect, url_for
 from app.pages.login import Login
 from app.pages.signup import Signup
 from app.pages.home import Home
@@ -18,10 +18,8 @@ def hotels():
 
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
-    print("signup")
     return Signup().serve()
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    print("login")
     return Login().serve()
