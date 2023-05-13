@@ -18,7 +18,7 @@ class FourSquareApi:
             "near": location,                               # near the given location
         }
         response = requests.get(apiUrl, params=params, headers=self.header)
-        response.encoding = 'unicode_escape'
+        response.encoding = 'utf-8'
         response = response.json()
 
         ret = []
@@ -44,7 +44,7 @@ class FourSquareApi:
             "fields": "photos,tips,tel,email,social_media", #website,    # Only the required fields
         }
         response = requests.get(apiUrl, params=params, headers=self.header)
-        response.encoding = 'unicode_escape'
+        response.encoding = 'utf-8'
         response = response.json()
 
         # print(response)
