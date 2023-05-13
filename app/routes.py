@@ -4,6 +4,7 @@ from app.pages.signup import Signup
 from app.pages.home import Home
 from app.pages.hotel import Hotel
 from app.pages.profile import Profile
+from app.pages.itinerary import Itinerary
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -28,3 +29,7 @@ def login():
 @app.route("/profile", methods=["GET", "POST"])
 def profile():
     return Profile().serve()
+
+@app.route("/itinerary", methods=["GET", "POST"])
+def itinerary():
+    return Itinerary().serve()
