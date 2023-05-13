@@ -3,6 +3,7 @@ from app.pages.login import Login
 from app.pages.signup import Signup
 from app.pages.home import Home
 from app.pages.hotel import Hotel
+from app.pages.profile import Profile
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -23,3 +24,7 @@ def signup():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     return Login().serve()
+
+@app.route("/profile", methods=["GET", "POST"])
+def profile():
+    return Profile().serve()
