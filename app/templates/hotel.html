@@ -175,7 +175,7 @@
 
 <section class="reservation" id="reservation">
 
-   <form action="" method="post">
+   <form action="/hotel?fsq_id={{ fsq_id }}" method="POST">
       <h3>make a reservation</h3>
       <div class="flex">
          <div class="box">
@@ -198,15 +198,15 @@
             </select>
          </div>
          <div class="box">
-            <p>childs <span>*</span></p>
-            <select name="childs" class="input" required>
-               <option value="-">0 child</option>
+            <p>children <span>*</span></p>
+            <select name="children" class="input" required>
+               <option value="0">0 child</option>
                <option value="1">1 child</option>
-               <option value="2">2 childs</option>
-               <option value="3">3 childs</option>
-               <option value="4">4 childs</option>
-               <option value="5">5 childs</option>
-               <option value="6">6 childs</option>
+               <option value="2">2 children</option>
+               <option value="3">3 children</option>
+               <option value="4">4 children</option>
+               <option value="5">5 children</option>
+               <option value="6">6 children</option>
             </select>
          </div>
          <div class="box">
@@ -221,7 +221,7 @@
             </select>
          </div>
       </div>
-      <input type="submit" value="check availability" name="check" class="btn">
+      <input type="submit" value="Confirm Booking" name="book" class="btn">
    </form>
 
 </section>

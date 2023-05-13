@@ -1,10 +1,11 @@
-from app import render_template, request, hotelApi
+from app import render_template, request, hotelApi, current_user
 
 class Home:
     def __init__(self):
         pass
 
     def serve(self):
+
         locations = []
         if request.method == "POST":
             # print(request.form['location'])

@@ -6,20 +6,26 @@
 <div id="navbar">
   <a>Booker.com</a>
 </div>
-<div id="inputsec">
+<form action="/signup" method="POST" id="inputsec">
   <h2>Sign in or create an account</h2>
-  <label for="">Enter Email</label><br />
-  <input id="email" type="email" placeholder="enter email here" /><br />
-  <label for="">Enter password</label><br />
-  <input id="pass" type="password" placeholder="enter password" />
-  <button id="butn">Continue with email</button>
-  <p>or use one of these options</p>
-</div>
 
-<h3>More ways to sign in</h3>
+  <label for="name">Enter Name</label><br />
+  <input id="name" name="name" type="text" placeholder="enter name here" /><br />
+
+  <label for="email">Enter Email</label><br />
+  <input id="email" name="email"type="email" placeholder="enter email here" /><br />
+
+  <label for="pass">Enter password</label><br />
+  <input id="pass" name="pass"type="password" placeholder="enter password" />
+  <button name="create_account">Continue with email</button>
+
+  <!-- <p>or use one of these options</p> -->
+</form>
+
+<!-- <h3>More ways to sign in</h3> -->
 
 <p>
-  By signing in or creating an account, you agree with ou
+  <!-- By signing in or creating an account, you agree with ou -->
   <a>Terms & conditions</a> and <a>Privacy statement</a>
 </p>
 <p class="lastp">All rights reserved. Copyright (2023 - *) - Booker.com™</p>

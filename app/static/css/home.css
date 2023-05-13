@@ -54,7 +54,7 @@
   /* margin-right: -10px; */
 }
 
-#top > div > button {
+#top > div > a > button {
   background-color: white;
   color: rgb(46, 46, 163);
   padding: 10px 20px;
