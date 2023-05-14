@@ -1,4 +1,4 @@
-from app import app, render_template, request, hotelApi, redirect, url_for
+from app import app, render_template, request, hotelApi, redirect, url_for, login_required
 from app.pages.login import Login
 from app.pages.signup import Signup
 from app.pages.home import Home
@@ -27,6 +27,7 @@ def login():
     return Login().serve()
 
 @app.route("/profile", methods=["GET", "POST"])
+@login_required
 def profile():
     return Profile().serve()
 
