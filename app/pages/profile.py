@@ -76,6 +76,15 @@ class Profile:
             return render_template("profile.html", user=self.user, error=error, bookingTableHeaders=self.bookingTableHeaders, bookingTableRow=self.bookingTableRow)
 
         if 'delete' in request.form:
+
+            if 'inputPassword' not in request.form or request.form['inputPassword'] == "":
+                error = "Password Not Provided"
+                return render_template("profile.html", user=self.user, error=error, bookingTableHeaders=self.bookingTableHeaders, bookingTableRow=self.bookingTableRow)
+
+            if request.form['inputPassword'] != self.user.password:
+                error = "Password Incorrect"
+                return render_template("profile.html", user=self.user, error=error, bookingTableHeaders=self.bookingTableHeaders, bookingTableRow=self.bookingTableRow)
+
             success = self.user.deleteAccount()
             if success: 
                 flash("Account Deleted Successfully")
