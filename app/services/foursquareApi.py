@@ -80,12 +80,23 @@ class FourSquareApi:
         except:
             return None
 
+    def getPlaceNameBasic(self, fsq_id: str) -> str:
+        apiUrl = "https://api.foursquare.com/v3/places/" + fsq_id
+        params = {
+            "fields": "name,location",    # Only the required fields
+        }
+        response = requests.get(apiUrl, params=params, headers=self.header)
+        response.encoding = 'utf-8'
+        response = response.json()
+
+        return response
+
             
     def getPlaceDetails(self, fsq_id: str) -> dict:
         # https://api.foursquare.com/v3/places/4c6238d358810f4795db061e?fields=photos%2Ctips%2Ctel%2Cemail%2Cwebsite%2Csocial_media
         apiUrl = "https://api.foursquare.com/v3/places/" + fsq_id
         params = {
-            "fields": "photos,tips,tel,email,social_media", #website,    # Only the required fields
+            "fields": "name,photos,tips,tel,email,social_media", #website,    # Only the required fields
         }
         response = requests.get(apiUrl, params=params, headers=self.header)
         response.encoding = 'utf-8'
@@ -94,6 +105,7 @@ class FourSquareApi:
         # print(response)
 
         ret = {
+            "name": "",
             "photos": [],
             "tips": [],
             "tel": "",
@@ -101,6 +113,10 @@ class FourSquareApi:
             # "website": "",
             "social_media": {},
         }
+
+        try: ret['name'] = response['name']
+        except Exception as e: ret['name'] = ''
+
         try:
             for photo in response['photos']:
                 ret['photos'].append(photo['prefix'] + "original" + photo['suffix'])

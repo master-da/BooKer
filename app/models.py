@@ -8,6 +8,7 @@ class User(UserMixin):
     name = ""
     email = ""
     password = ""
+    pfp_path  = ""
 
     first_name = ""
     last_name = ""
@@ -16,6 +17,22 @@ class User(UserMixin):
 
     def get(self, user_id):
         return UserTable().getUserFromId(user_id)
+    
+    def changePassword(self, old_password, new_password):
+        if self.password == old_password:
+            self.password = new_password
+            return UserTable().update(self.id, self.name, self.email, self.password)
+        return False
+    
+    def updatePfp(self, pfp_path):
+        self.pfp_path = pfp_path
+        return UserTable().updateUserPfp(self.id, pfp_path)
+    
+    def getBookings(self):
+        return BookingTable().selectFromUserId(self.id)
+    
+    def deleteAccount(self):
+        return UserTable().delete(self.id)
 
     def __repr__(self):
         return f'<User {self.name}>'
@@ -32,10 +49,20 @@ class UserTable:
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             name TEXT NOT NULL,
             email TEXT NOT NULL,
-            password TEXT NOT NULL
+            password TEXT NOT NULL,
+            pfp_path TEXT NOT_NULL DEFAULT 'pfp/default_pfp.png'
         );"""
         try:
             self.conn.execute(create_table)
+            self.conn.commit()
+        except sqlite3.Error as e:
+            print(e)
+            return False
+        return True
+    
+    def exec(self, arg):
+        try:
+            self.conn.execute(arg)
             self.conn.commit()
         except sqlite3.Error as e:
             print(e)
@@ -48,7 +75,7 @@ class UserTable:
         if len(df) > 0:
             return False
         
-        insert = f"""INSERT INTO users (name, email, password) VALUES ('{name}', '{email}', '{password}');"""
+        insert = f"""INSERT INTO users (name, email, password, pfp_path) VALUES ('{name}', '{email}', '{password}', 'pfp/default_pfp.png');"""
         try:
             self.conn.execute(insert)
             self.conn.commit()
@@ -85,10 +112,21 @@ class UserTable:
         user.name = account['name']
         user.email = account['email']
         user.password = account['password']
+        user.pfp_path = account['pfp_path']
 
         return user
+    
+    def updateUserPfp(self, id, pfp_path) -> bool:
+        update = f"""UPDATE users SET pfp_path = '{pfp_path}' WHERE id = {id};"""
+        try:
+            self.conn.execute(update)
+            self.conn.commit()
+        except sqlite3.Error as e:
+            print(e)
+            return False
+        return True
 
-    def select(self) -> bool:
+    def select(self) -> pd.DataFrame:
         select = """SELECT * FROM users;"""
         df = pd.read_sql_query(select, self.conn)
         return df
@@ -151,13 +189,18 @@ class BookingTable:
             return False
         return True
     
-    def select(self) -> bool:
+    def select(self) -> pd.DataFrame:
         select = f"""SELECT * FROM booking;"""
         df = pd.read_sql_query(select, self.conn)
         return df
     
-    def selectFromId(self, id) -> bool:
+    def selectFromId(self, id) -> pd.DataFrame:
         select = f"""SELECT * FROM booking WHERE id = {id};"""
+        df = pd.read_sql_query(select, self.conn)
+        return df
+    
+    def selectFromUserId(self, user_id) -> pd.DataFrame:
+        select = f"""SELECT * FROM booking WHERE user_id = {user_id};"""
         df = pd.read_sql_query(select, self.conn)
         return df
     

@@ -9,16 +9,20 @@
 
 {% block body %}
 <div id="navbar">
-    <a href="/profile" class="profile-button">Profile</a>
     <div id="top">
         <h1>Booker.com</h1>
         <div>
-            <a class="liner" href="https://join.booking.com/?lang=en-gb&utm_source=topbar&utm_medium=frontend&amp;label=gen173nr-1DCAEoggI46AdIM1gEaGyIAQGYAQm4ARfIAQzYAQPoAQGIAgGoAgO4AtKB3pYGwAIB0gIkNzEzODAzMGQtZDFhYi00MGM2LTg5NmItM2YyMTJlMmJmZjFk2AIE4AIB&amp;aid=304142">List your property</a>
+            
+            {% if user is defined %}
+            <a href="/profile">{{ user.name }}</a>
+            <a href="/login"><button id="logout">Logout</button></a>
+            {% else %}
             <a href="/signup"><button id="Register">Register</button></a>
             <a href="/login"><button id="signin">Sign in</button></a>
+            {% endif %}
         </div>
     </div>
-    <div id="stay">
+    <!-- <div id="stay">
         <a >
             <img src="https://th.bing.com/th/id/OIP.ymDpf62hm6huwQAhvIQ8rQHaHa?pid=ImgDet&w=221&h=221&c=7&dpr=1.25"/>
             <p>Stays</p>
@@ -43,7 +47,7 @@
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Zusatzschild_800_-_Taxi_(300x150)%2C_StVO_1976.svg/301px-Zusatzschild_800_-_Taxi_(300x150)%2C_StVO_1976.svg.png"/>
             <p>Airport taxis</p>
         </a>
-    </div>
+    </div> -->
     <div id="findtxt">
         <h1>Find your next stay</h1>
         <h4>search low prices on hotels,homes and much more...</h4>
@@ -53,7 +57,7 @@
     <th>
         <form action="/home" method="POST">
             <td><input name="location" class="Place" type="text" placeholder="Where are you going?"></td>
-            <td>
+            <!-- <td>
                 <input name="checkin" type="date" class="date" placeholder="check-in"/>
                 <input name="checkout" type="date" class="date" placeholder="check-out"/>
             </td>
@@ -61,15 +65,15 @@
                 <input name="adult" class="available" type="number" placeholder="adult"/>
                 <input name="children" class="available" type="number" placeholder="children"/>
                 <input name="room" class="available" type="number" placeholder="room"/>
-            </td>
+            </td> -->
             <td><button class="search" type="submit">Search</button></td>
         </form>
     </th>
 </table>
-<div id="trwork">
+<!-- <div id="trwork">
 <input type="checkbox">
 <p>I'm travelling for work</p>
-</div>
+</div> -->
 
 <div id="covid">
    <img src="https://th.bing.com/th/id/OIP.QV9tJ17E2Yi1xWOQBVKJ-QHaEi?pid=ImgDet&w=221&h=135&c=7&dpr=1.25" alt="">
@@ -86,5 +90,9 @@
     </div>
 </div>
 {% endfor %}
+{{ location }}
+{% if noLocation == True %}
+<h3 style="color:red; margin-left: 35px;">No Suitable Destination Found!</h3>
+{% endif %}
 
 {% endblock %}

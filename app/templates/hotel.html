@@ -22,17 +22,21 @@
 <section class="header">
 
    <div class="flex">
-      <a href="#home" class="logo">Hotels And Resorts</a>
-      <!-- <a href="#availability" class="btn">check availability</a>
-      <div id="menu-btn" class="fas fa-bars">asdf</div> -->
+      <a href="/" class="logo"><h1>Booker.com</h1></a>
+      {% if user.is_authenticated %}
+      <a href="/profile" class="btn">{{ user.name }}</a>
+      {% else %}
+      <a href="/login" class="btn">Login</a>
+      {% endif %}
+      <!-- <div id="menu-btn" class="fas fa-bars">asdf</div> -->
    </div>
 
    <nav class="navbar">
       <!-- <a href="#home">home</a> -->
       <a href="#reservation">reservation</a>
       <a href="#gallery">gallery</a>
-      <a href="#contact">contact</a>
       <a href="#reviews">reviews</a>
+      <a href="#contact">contact</a>
    </nav>
 
 </section>
@@ -41,9 +45,10 @@
 
 <!-- home section starts  -->
 
-<!-- <section class="home" id="home">
+<section class="home" id="home">
+   <a class="logo"><h3>{{ name }}</h3></a>
 
-   <div class="swiper home-slider">
+<!--    <div class="swiper home-slider">
 
       <div class="swiper-wrapper">
 
@@ -76,9 +81,9 @@
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
 
-   </div>
+   </div> -->
 
-</section> -->
+</section>
 
 <!-- home section ends -->
 
@@ -254,51 +259,6 @@
 
 <!-- gallery section ends -->
 
-<!-- contact section starts  -->
-
-<section class="contact" id="contact">
-
-   <div class="row">
-
-      <div id = "contact-form">
-         <h3>send us message</h3>
-         <input type="text" name="name" required maxlength="50" placeholder="enter your name" class="box">
-         <input type="email" name="email" required maxlength="50" placeholder="enter your email" class="box">
-         <input type="number" name="number" required maxlength="10" min="0" max="9999999999" placeholder="enter your number" class="box">
-         <textarea name="msg" class="box" required maxlength="1000" placeholder="enter your message" cols="30" rows="10"></textarea>
-         <input type="submit" value="send message" name="send" class="btn" onclick="sendMail()">
-      </div>
-
-      <div class="faq">
-         <h3 class="title">frequently asked questions</h3>
-         <div class="box active">
-            <h3>how to cancel?</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt aspernatur excepturi eos! Quibusdam, sapiente.</p>
-         </div>
-         <div class="box">
-            <h3>is there any vacancy?</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa ipsam neque quaerat mollitia ratione? Soluta!</p>
-         </div>
-         <div class="box">
-            <h3>what are payment methods?</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa ipsam neque quaerat mollitia ratione? Soluta!</p>
-         </div>
-         <div class="box">
-            <h3>how to claim coupons codes?</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa ipsam neque quaerat mollitia ratione? Soluta!</p>
-         </div>
-         <div class="box">
-            <h3>what are the age requirements?</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa ipsam neque quaerat mollitia ratione? Soluta!</p>
-         </div>
-      </div>
-
-   </div>
-
-</section>
-
-<!-- contact section ends -->
-
 <!-- reviews section starts  -->
 
 <section class="reviews" id="reviews">
@@ -310,7 +270,7 @@
          {% for tip in tips %}
             <div class="swiper-slide box">
                <img src={{ url_for('static', filename='images/pic-' + rng() + '.png') }} alt="">
-               <h3>{{ name() }}</h3>
+               <h3>{{ getName() }}</h3>
                <p>{{ tip }}</p>
             </div>
          {% endfor %}
@@ -354,6 +314,51 @@
 
 <!-- reviews section ends  -->
 
+<!-- contact section starts  -->
+
+<section class="contact" id="contact">
+
+   <div class="row">
+
+      <div id = "contact-form">
+         <h3>send us message</h3>
+         <input type="text" name="name" required maxlength="50" placeholder="enter your name" class="box">
+         <input type="email" name="email" required maxlength="50" placeholder="enter your email" class="box">
+         <input type="number" name="number" required maxlength="10" min="0" max="9999999999" placeholder="enter your number" class="box">
+         <textarea name="msg" class="box" required maxlength="1000" placeholder="enter your message" cols="30" rows="10"></textarea>
+         <input type="submit" value="send message" name="send" class="btn" onclick="sendMail()">
+      </div>
+
+      <!-- <div class="faq">
+         <h3 class="title">frequently asked questions</h3>
+         <div class="box active">
+            <h3>how to cancel?</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt aspernatur excepturi eos! Quibusdam, sapiente.</p>
+         </div>
+         <div class="box">
+            <h3>is there any vacancy?</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa ipsam neque quaerat mollitia ratione? Soluta!</p>
+         </div>
+         <div class="box">
+            <h3>what are payment methods?</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa ipsam neque quaerat mollitia ratione? Soluta!</p>
+         </div>
+         <div class="box">
+            <h3>how to claim coupons codes?</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa ipsam neque quaerat mollitia ratione? Soluta!</p>
+         </div>
+         <div class="box">
+            <h3>what are the age requirements?</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa ipsam neque quaerat mollitia ratione? Soluta!</p>
+         </div>
+      </div> -->
+
+   </div>
+
+</section>
+
+<!-- contact section ends -->
+
 <!-- footer section starts  -->
 
 <section class="footer">
@@ -393,11 +398,17 @@
 
 </section>
 
+{% if error != "" and error != None %}
+    <div class="toast fade-out fadeOut">{{ error }}</div>
+{% endif %}
+
 <!-- footer section ends -->
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 
 <!-- custom js file link  -->
 <script src="static/js/hotel.js"></script>
+
+
 
 {% endblock %}

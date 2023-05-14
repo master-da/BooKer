@@ -1,4 +1,4 @@
-from app import render_template, request, hotelApi, current_user
+from app import render_template, request, hotelApi, current_user, login_required
 from random import randint
 import names
 from app.models import BookingTable
@@ -7,6 +7,7 @@ class Hotel:
 
     fsq_id = ""
     
+    name = ""
     photos = []
     tips = []
     tel = ''
@@ -16,6 +17,8 @@ class Hotel:
 
     def __init__(self):
         pass
+
+    user = current_user
 
     def serve(self):
         # print(">>>>>>>>>>>>>>>>>>", request.args, "<<<<<<<<<<<<<<")
@@ -28,12 +31,14 @@ class Hotel:
         if request.method == 'POST':
             if 'book' in request.form:
                 error = self.booking()
-        return render_template("hotel.html", fsq_id=self.fsq_id, photos=self.photos, tips=self.tips, tel=self.tel, email=self.email, website=self.website, social_media=self.social_media, error=error, rng=self.getRandInt, name=self.getName)
+                print(error)
+        return render_template("hotel.html", user=self.user, fsq_id=self.fsq_id, name=self.name, photos=self.photos, tips=self.tips, tel=self.tel, email=self.email, website=self.website, social_media=self.social_media, error=error, rng=self.getRandInt, getName=self.getName)
     
     def getHotelDetails(self):
         hotelDetails = hotelApi.getPlaceDetails(self.fsq_id)
         try:
             
+            self.name = hotelDetails['name']
             self.photos = hotelDetails['photos']
             self.tips = hotelDetails['tips']
             self.tel: hotelDetails['tel']
@@ -61,9 +66,9 @@ class Hotel:
         if 'rooms' not in request.form:
             return "Please provide no of rooms"
         
-        user = current_user
-        if user is None:
+        if not current_user.is_authenticated:
             return "You have to log in first"
+        user = current_user
         
         # print(user.id, request.form['check_in'], request.form['check_out'], request.form['adults'], request.form['children'], request.form['rooms'])
         success = BookingTable().insert(user.id, self.fsq_id, request.form['check_in'], request.form['check_out'], request.form['adults'], request.form['children'], request.form['rooms'])

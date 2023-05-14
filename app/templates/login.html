@@ -5,7 +5,7 @@
 
 {% endblock %} {% block body %}
 <div id="navbar">
-  <a>Booker.com</a>
+  <a href="/">Booker.com</a>
 </div>
 <form id="inputsec" action="/login" method="POST">
   <h2>Enter your account information</h2>
@@ -28,5 +28,9 @@
   <a>Terms & conditions</a> and <a>Privacy statement</a>
 </p>
 <p class="lastp">All rights reserved. Copyright (2023 - *) - Booker.com™</p>
+
+{% if loginFailed is defined %}
+    <div class="toast fade-out fadeOut">{{ error }}</div>
+{% endif %}
 
 {% endblock %}

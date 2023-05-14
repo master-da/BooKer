@@ -5,7 +5,7 @@
   color: white;
 }
 #navbar > #top {
-  width: 80%;
+  width: 84%;
   height: 80px;
   display: flex;
   justify-content: space-between;
@@ -15,7 +15,7 @@
 }
 #navbar > #top > div {
   /* border:solid red; */
-  width: 50%;
+  width: 25%;
   height: 35px;
   display: flex;
   justify-content: space-evenly;
@@ -141,7 +141,8 @@
 .Place {
   padding: 5px 50px 5px 5px;
   border: 0px;
-  font-size: 15px;
+  height: 90px;
+  font-size: 30px;
 }
 .Place:focus {
   outline: none;
@@ -151,6 +152,9 @@
   border: 0px;
   background-color: rgb(42, 134, 254);
   color: white;
+  width: 100%;
+  height: 100px;
+  /* padding: 50px; */
   font-size: 20px;
 }
 

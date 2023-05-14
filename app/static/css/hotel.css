@@ -86,6 +86,10 @@ section{
    color: var(--sub-color);
    font-size: 2.5rem;
 }
+.logo{
+   color: var(--sub-color);
+   font-size: 2.5rem;
+}
 
 .header .flex .btn{
    margin-top: 0;
@@ -586,3 +590,40 @@ section{
    }
 
 }
+
+.toast {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   padding: 24px 49px;
+   gap: 10px;
+   
+   position: absolute;
+   width: 258px;
+   height: 73px;
+   right: 20px;
+   top: 120px;
+ 
+   font-family: 'Outfit';
+   font-style: normal;
+   font-weight: 400;
+   font-size: 20px;
+   line-height: 25px;
+   text-align: center;
+ 
+   color: #FFFFFF;
+   
+   background: #463A84;
+   border-radius: 24px;
+ }
+ @keyframes fade-out {
+   0% {opacity: 1;}
+   20% {opacity: 1;}
+   100% {opacity: 0;}
+   }
+ .fade-out {
+   animation-name: fade-out;
+   animation-duration: 4s;
+   animation-fill-mode: both;
+ }

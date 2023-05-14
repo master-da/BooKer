@@ -4,7 +4,7 @@
 
 {% endblock %} {% block body %}
 <div id="navbar">
-  <a>Booker.com</a>
+  <a href="/">Booker.com</a>
 </div>
 <form action="/signup" method="POST" id="inputsec">
   <h2>Sign in or create an account</h2>
@@ -24,9 +24,14 @@
 
 <!-- <h3>More ways to sign in</h3> -->
 
-<p>
+<!-- <p> -->
   <!-- By signing in or creating an account, you agree with ou -->
-  <a>Terms & conditions</a> and <a>Privacy statement</a>
-</p>
+  <!-- <a>Terms & conditions</a> and <a>Privacy statement</a> -->
+<!-- </p> -->
 <p class="lastp">All rights reserved. Copyright (2023 - *) - Booker.com™</p>
+
+{% if signupFailed is defined %}
+    <div class="toast fade-out fadeOut">{{ error }}</div>
+{% endif %}
+
 {% endblock %}

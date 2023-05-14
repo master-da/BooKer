@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, get_flashed_messages
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 from app.models import User
 from app.services.foursquareApi import FourSquareApi
