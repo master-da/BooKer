@@ -21,7 +21,7 @@ class Hotel:
         # print(">>>>>>>>>>>>>>>>>>", request.args, "<<<<<<<<<<<<<<")
         if 'fsq_id' in request.args:
             self.fsq_id = request.args['fsq_id']
-            # self.getHotelDetails()
+            self.getHotelDetails()
         else:
             print(">>>>>>>>>>>>>>>>>>", "FSQ ID NOT PROVIDWED", "<<<<<<<<<<<<<<")
         error = ""
