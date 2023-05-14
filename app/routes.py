@@ -1,4 +1,4 @@
-from app import app, render_template, request, hotelApi, login_required
+from app import app, render_template, request, hotelApi, redirect, url_for, login_required
 from app.pages.login import Login
 from app.pages.signup import Signup
 from app.pages.home import Home
@@ -8,7 +8,7 @@ from app.pages.itinerary import Itinerary
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    return render_template("base.html")
+    return redirect(url_for('home'))
 
 @app.route("/home", methods=["GET", "POST"])
 def home():
@@ -27,6 +27,10 @@ def login():
     return Login().serve()
 
 @app.route("/profile", methods=["GET", "POST"])
+<<<<<<< HEAD
+=======
+@login_required
+>>>>>>> dc3238daf0c25b916f0805b9f19d1e9044759d24
 def profile():
     return Profile().serve()
 

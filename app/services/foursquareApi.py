@@ -1,5 +1,24 @@
 import requests
 
+class ServiceProvider:
+    provider_id = ''
+    name = ''
+    address = ''
+    phone = ''
+    email = ''
+    services = ''
+
+class Service:
+    service_id = ''
+    provider_id = ''
+    type = ''
+    description = ''
+    price = ''
+    availability = ''
+
+    def get_details(self):
+        return FourSquareApi().getService(self.service_id)
+
 class FourSquareApi:
     apiKey = "fsq3MPNAzleYG/1CNuzhR1Ddr8+4Grit+GP8S5Gdhela7H4="
     header = {
@@ -36,6 +55,31 @@ class FourSquareApi:
                 print(e)
 
         return ret
+    
+    def getService(self, service_id) -> ServiceProvider:
+        apiUrl = "https://api.foursquare.com/v3/places/search"
+        params = {
+            "near": service_id,                               # near the given location
+            "categories": 19009,                            # looks for just hotels
+            "fields": "fsq_id,categories,location,name",    # Only the required fields
+        }
+        try:
+            response = response.get(apiUrl, params=params, headers=self.header)
+            response.encoding = 'utf-8'
+            response = response.json()
+
+            serviceProvider = ServiceProvider()
+            serviceProvider.provider_id = response['fsq_id']
+            serviceProvider.name = response['name']
+            serviceProvider.address = response['location']['formatted_address']
+            serviceProvider.phone = response['tel']
+            serviceProvider.email = response['email']
+            serviceProvider.services = response['categories']
+
+            return serviceProvider
+        except:
+            return None
+
             
     def getPlaceDetails(self, fsq_id: str) -> dict:
         # https://api.foursquare.com/v3/places/4c6238d358810f4795db061e?fields=photos%2Ctips%2Ctel%2Cemail%2Cwebsite%2Csocial_media
@@ -84,3 +128,4 @@ class FourSquareApi:
         # print(ret)
 
         return ret
+    

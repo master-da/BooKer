@@ -9,11 +9,17 @@ class User(UserMixin):
     email = ""
     password = ""
 
+    first_name = ""
+    last_name = ""
+    preferences = ""
+    account_status = ""
+
     def get(self, user_id):
         return UserTable().getUserFromId(user_id)
 
     def __repr__(self):
         return f'<User {self.name}>'
+
 
 # This class interacts wiht the User table in databse        
 class UserTable:
@@ -150,6 +156,11 @@ class BookingTable:
         df = pd.read_sql_query(select, self.conn)
         return df
     
+    def selectFromId(self, id) -> bool:
+        select = f"""SELECT * FROM booking WHERE id = {id};"""
+        df = pd.read_sql_query(select, self.conn)
+        return df
+    
     def delete(self, id) -> bool:
         delete = f"""DELETE FROM booking WHERE id = {id};"""
         try:
@@ -162,4 +173,25 @@ class BookingTable:
     
     def close(self):
         self.conn.close()
+class Booking:
     
+    id = 0
+    user_id = 0
+    hotel_fsq_id = 0
+    check_in = ""
+    check_out = ""
+    adults = 0
+    children = 0
+    rooms = 0
+
+    bookingTable = BookingTable()
+
+    def create_booking(self):
+        return self.bookingTable.insert(self.user_id, self.hotel_fsq_id, self.check_in, self.check_out, self.adults, self.children, self.rooms)
+    def cancel_booking(self):
+        return self.bookingTable.delete(self.id)
+    def get_booking_details(self):
+        return self.bookingTable.selectFromId(self.id)
+    
+    def __repr__(self):
+        return f'<Booking {self.id}>'
