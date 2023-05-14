@@ -1,3 +1,29 @@
+class Review {
+
+   static last_review_id = 0
+
+   review_id
+   user_id
+   service_id
+   rating
+   content
+   status
+
+   submit_review() {
+      var form = document.getElementById("contact-form");
+
+      this.review_id = this.last_review_id++
+      this.user_id = 1
+
+      let name = form.querySelector("input[name='name']").value;
+      this.user_id = form.querySelector("input[name='email']").value;
+      this.rating = form.querySelector("input[name='number']").value;
+      this.content = form.querySelector("textarea[name='msg']").value;
+      
+      window.location.href = "mailto:drakensang47@gmail.com" + "?subject=REVIEW:" + name + "&body=" + this.content;
+   }
+}
+
 let navbar = document.querySelector('.header .navbar');
 
 // document.querySelector('#menu-btn').onclick = () =>{
@@ -13,6 +39,11 @@ document.querySelectorAll('.contact .row .faq .box h3').forEach(faqBox => {
       faqBox.parentElement.classList.toggle('active');
    }
 });
+
+function sendMail() {
+   review = new Review()
+   review.submit_review()
+}
 
 var swiper = new Swiper(".home-slider", {
    loop:true,

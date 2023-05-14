@@ -260,14 +260,14 @@
 
    <div class="row">
 
-      <form action="" method="post">
+      <div id = "contact-form">
          <h3>send us message</h3>
          <input type="text" name="name" required maxlength="50" placeholder="enter your name" class="box">
          <input type="email" name="email" required maxlength="50" placeholder="enter your email" class="box">
          <input type="number" name="number" required maxlength="10" min="0" max="9999999999" placeholder="enter your number" class="box">
          <textarea name="msg" class="box" required maxlength="1000" placeholder="enter your message" cols="30" rows="10"></textarea>
-         <input type="submit" value="send message" name="send" class="btn">
-      </form>
+         <input type="submit" value="send message" name="send" class="btn" onclick="sendMail()">
+      </div>
 
       <div class="faq">
          <h3 class="title">frequently asked questions</h3>
@@ -309,8 +309,8 @@
 
          {% for tip in tips %}
             <div class="swiper-slide box">
-               <img src={{ url_for('static', filename='images/pic-1.png') }} alt="">
-               <h3>john deo</h3>
+               <img src={{ url_for('static', filename='images/pic-' + rng() + '.png') }} alt="">
+               <h3>{{ name() }}</h3>
                <p>{{ tip }}</p>
             </div>
          {% endfor %}
@@ -398,6 +398,6 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 
 <!-- custom js file link  -->
-<script src="static/js/script.js"></script>
+<script src="static/js/hotel.js"></script>
 
 {% endblock %}
