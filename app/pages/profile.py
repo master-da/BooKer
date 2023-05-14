@@ -1,4 +1,5 @@
 from app import render_template, current_user, request, url_for, app, hotelApi, logout_user, flash, redirect
+from app.models import UserTable
 import pandas as pd
 import os
 
@@ -18,22 +19,23 @@ class Profile:
     ]
     bookingTableRow = []
     def serve(self):
-
-        bookingList = self.user.getBookings() 
-        # bookingTableColumns = [list(bookingList.columns.values)]
-
-        self.bookingTableRow = []
-        for _, booking in bookingList.iterrows():
-            hotel = hotelApi.getPlaceNameBasic(booking['hotel_fsq_id'])
-            self.bookingTableRow.append([
-                hotel['name'],
-                hotel['location']['formatted_address'],
-                booking['check_in'],
-                booking['check_out'],
-                booking['adults'],
-                booking['children'],
-                booking['rooms']
-            ])
+        print(request.form)
+        if 'test' not in request.form:
+            
+            bookingList = self.user.getBookings() 
+            self.bookingTableRow = []
+            for _, booking in bookingList.iterrows():
+                hotel = hotelApi.getPlaceNameBasic(booking['hotel_fsq_id'])
+                self.bookingTableRow.append([
+                    hotel['name'],
+                    hotel['location']['formatted_address'],
+                    booking['check_in'],
+                    booking['check_out'],
+                    booking['adults'],
+                    booking['children'],
+                    booking['rooms']
+                ])
+        
 
         if request.method == 'POST':
             return self.handlePostRequest()
@@ -41,15 +43,19 @@ class Profile:
         return render_template("profile.html", user=self.user, bookingTableHeaders=self.bookingTableHeaders, bookingTableRow=self.bookingTableRow)
 
     def handlePostRequest(self):
-
+        print(request.form, current_user)
         if 'profile' in request.form:
-            if 'pfp' in request.files and request.files['pfp'].filename != "":
-                print("pfp")
-                pfp = request.files['pfp']
-                pfp.save(os.path.join(app.root_path, 'static', 'images', 'pfp', self.user.name + '.' + request.files['pfp'].filename.split('.')[-1]))
-                self.user.updatePfp('pfp/' + self.user.name + '.' + pfp.filename.split('.')[-1])
-            if 'inputUsername' in request.form:
-                self.user.updateUsername(request.form['inputUsername'])
+
+            if 'test' in request.form:
+                UserTable().updateUsername(request.form['id'], request.form['inputUsername'])
+            else :
+                if 'pfp' in request.files and request.files['pfp'].filename != "":
+                    print("pfp")
+                    pfp = request.files['pfp']
+                    pfp.save(os.path.join(app.root_path, 'static', 'images', 'pfp', self.user.name + '.' + request.files['pfp'].filename.split('.')[-1]))
+                    self.user.updatePfp('pfp/' + self.user.name + '.' + pfp.filename.split('.')[-1])
+                if 'inputUsername' in request.form:
+                    self.user.updateUsername(request.form['inputUsername'])
 
         if 'password' in request.form:
 

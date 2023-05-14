@@ -120,6 +120,23 @@ class UserTable:
 
         return user
     
+    def getUserFromEmail(self, email) -> User:
+        select = f"""SELECT * FROM users where email = '{email}'"""
+        df = pd.read_sql_query(select, self.conn)
+        if len(df) == 0:
+            return None
+        account = df.loc[0]
+
+        user = User(); 
+        
+        user.id = account['id']
+        user.name = account['name']
+        user.email = account['email']
+        user.password = account['password']
+        user.pfp_path = account['pfp_path']
+
+        return user
+    
     def updateUserPfp(self, id, pfp_path) -> bool:
         update = f"""UPDATE users SET pfp_path = '{pfp_path}' WHERE id = {id};"""
         try:

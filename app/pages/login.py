@@ -2,10 +2,9 @@ from app import render_template, request, redirect, url_for, login_user, get_fla
 from app.models import UserTable
 
 class Login:
-    def __init__(self):
-        pass
 
     def serve(self):
+        
         if request.method == 'POST':
             return self.handlePostReq()
         
@@ -18,16 +17,16 @@ class Login:
     
     def handlePostReq(self):
         if 'to_signup' in request.form:
-            print("to signup")
             return redirect(url_for('signup'))
         elif 'signin' in request.form:
-            print(request.form)
+            
             if 'email' not in request.form or 'pass' not in request.form:
                 return render_template("login.html", error="Empty email or password", loginFailed=True)
+            
             elif request.form['email'] == "" or request.form['pass'] == "":
                 return render_template("login.html", error="Empty email or password", loginFailed=True)
+            
             user = UserTable().authenticate(request.form['email'], request.form['pass'])
-            # print(user)
             if user != None:
                 login_user(user)
                 return redirect(url_for('home'))

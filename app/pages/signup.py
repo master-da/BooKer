@@ -12,11 +12,13 @@ class Signup:
         return render_template("signup.html")
     
     def handlePostReq(self):
+        print(request.form)
         if 'create_account' in request.form:
             if 'name' not in request.form or 'email' not in request.form or 'pass' not in request.form:
                 return render_template("signup.html", error="Invalid form Data", signupFailed=True)
 
             success = UserTable().insert(request.form['name'], request.form['email'], request.form['pass'])
+            print(success)
             if success:
                 flash("Account created successfully")
                 return redirect(url_for('login'))

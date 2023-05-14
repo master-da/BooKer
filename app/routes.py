@@ -35,7 +35,7 @@ def login():
 #     return redirect(url_for('login'))
 
 @app.route("/profile", methods=["GET", "POST"])
-@login_required
+# @login_required
 def profile():
     return Profile().serve()
 
