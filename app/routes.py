@@ -8,7 +8,7 @@ from app.pages.itinerary import Itinerary
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    return render_template("base.html")
+    return redirect(url_for('home'))
 
 @app.route("/home", methods=["GET", "POST"])
 def home():
