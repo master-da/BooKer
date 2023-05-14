@@ -28,6 +28,10 @@ class User(UserMixin):
         self.pfp_path = pfp_path
         return UserTable().updateUserPfp(self.id, pfp_path)
     
+    def updateUsername(self, username):
+        self.name = username
+        return UserTable().updateUsername(self.id, username)
+    
     def getBookings(self):
         return BookingTable().selectFromUserId(self.id)
     
@@ -118,6 +122,22 @@ class UserTable:
     
     def updateUserPfp(self, id, pfp_path) -> bool:
         update = f"""UPDATE users SET pfp_path = '{pfp_path}' WHERE id = {id};"""
+        try:
+            self.conn.execute(update)
+            self.conn.commit()
+        except sqlite3.Error as e:
+            print(e)
+            return False
+        return True
+
+    def updateUsername(self, id, name) -> bool:
+
+        check = f"""SELECT * FROM users WHERE name = '{name}';"""
+        df = pd.read_sql_query(check, self.conn)
+        if len(df) > 0:
+            return False
+
+        update = f"""UPDATE users SET name = '{name}' WHERE id = {id};"""
         try:
             self.conn.execute(update)
             self.conn.commit()

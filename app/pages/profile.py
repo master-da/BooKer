@@ -41,12 +41,15 @@ class Profile:
         return render_template("profile.html", user=self.user, bookingTableHeaders=self.bookingTableHeaders, bookingTableRow=self.bookingTableRow)
 
     def handlePostRequest(self):
-        
-        if 'pfp' in request.files:
-            
-            pfp = request.files['pfp']
-            pfp.save(os.path.join(app.root_path, 'static', 'images', 'pfp', self.user.name + '.' + request.files['pfp'].filename.split('.')[-1]))
-            self.user.updatePfp('pfp/' + self.user.name + '.' + pfp.filename.split('.')[-1])
+
+        if 'profile' in request.form:
+            if 'pfp' in request.files and request.files['pfp'].filename != "":
+                print("pfp")
+                pfp = request.files['pfp']
+                pfp.save(os.path.join(app.root_path, 'static', 'images', 'pfp', self.user.name + '.' + request.files['pfp'].filename.split('.')[-1]))
+                self.user.updatePfp('pfp/' + self.user.name + '.' + pfp.filename.split('.')[-1])
+            if 'inputUsername' in request.form:
+                self.user.updateUsername(request.form['inputUsername'])
 
         if 'password' in request.form:
 
@@ -91,5 +94,5 @@ class Profile:
                 logout_user()
                 return redirect(url_for('login'))
 
-        return render_template("profile.html", user=self.user, error=error, bookingTableHeaders=self.bookingTableHeaders, bookingTableRow=self.bookingTableRow)
+        return render_template("profile.html", user=self.user, bookingTableHeaders=self.bookingTableHeaders, bookingTableRow=self.bookingTableRow)
 

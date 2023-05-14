@@ -130,41 +130,23 @@
                       <div class="col-md-8">
                         <div class="form-group">
                           <label for="inputUsername">Username</label>
-                          <input
-                            type="text"
-                            class="form-control"
-                            id="inputUsername"
-                            placeholder={{ user.name }}
-                          />
+                          <input type="text" class="form-control" id="inputUsername" name="inputUsername" placeholder={{ user.name }}>
                         </div>
                         <div class="form-group">
                           <label for="inputUsername">Biography</label>
-                          <textarea
-                            rows="2"
-                            class="form-control"
-                            id="inputBio"
-                            placeholder="Tell something about yourself"
-                          ></textarea>
+                          <textarea rows="2" class="form-control" id="inputBio" name="inputBio" placeholder="Tell something about yourself"></textarea>
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="text-center">
-                          <img
-                            alt="Andrew Jones"
-                            src= {{ url_for('static', filename='images/' + user.pfp_path) }}
-                            class="rounded-circle img-responsive mt-2"
-                            width="128"
-                            height="128"
-                          />
+                          <img alt="Andrew Jones" src= {{ url_for('static', filename='images/' + user.pfp_path) }} class="rounded-circle img-responsive mt-2" width="128" height="128"/>
                           <input type="file" name="pfp" style="display: none" id="pfp"></input>
                           <label for="pfp" type="file" class="mt-2 btn btn-primary input-button">Upload</label>
                           <small>For best results, use an image at least 128px by 128px in .jpg format</small>
                         </div>
                       </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">
-                      Save changes
-                    </button>
+                    <button type="submit" class="btn btn-primary" name="profile">Save changes</button>
                   </form>
                 </div>
               </div>
