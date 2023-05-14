@@ -27,7 +27,10 @@ def login():
     return Login().serve()
 
 @app.route("/profile", methods=["GET", "POST"])
+<<<<<<< HEAD
+=======
 @login_required
+>>>>>>> dc3238daf0c25b916f0805b9f19d1e9044759d24
 def profile():
     return Profile().serve()
 

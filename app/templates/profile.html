@@ -14,9 +14,24 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
     />
+<<<<<<< HEAD
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/itinerary.css') }}">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+      .form-check-input[type="checkbox"] {
+        transform: scale(0.5); /* Adjust the scale value as needed */
+        align-self: flex-start;
+        margin-top: 0.25rem; /* Adjust the margin as needed */
+      }
+    </style>
+=======
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+>>>>>>> dc3238daf0c25b916f0805b9f19d1e9044759d24
   </head>
   <body>
     <div class="container p-0">
@@ -47,7 +62,11 @@
               <a
                 class="list-group-item list-group-item-action"
                 data-toggle="list"
+<<<<<<< HEAD
+                href="#email-notifications"
+=======
                 href="#"
+>>>>>>> dc3238daf0c25b916f0805b9f19d1e9044759d24
                 role="tab"
               >
                 Email notifications
@@ -55,7 +74,11 @@
               <a
                 class="list-group-item list-group-item-action"
                 data-toggle="list"
+<<<<<<< HEAD
+                href="#booking"
+=======
                 href="#"
+>>>>>>> dc3238daf0c25b916f0805b9f19d1e9044759d24
                 role="tab"
               >
                 Your Bookings
@@ -63,7 +86,11 @@
               <a
                 class="list-group-item list-group-item-action"
                 data-toggle="list"
+<<<<<<< HEAD
+                href="#itinerary"
+=======
                 href="/itinerary"
+>>>>>>> dc3238daf0c25b916f0805b9f19d1e9044759d24
                 role="tab"
               >
                 Itinerary
@@ -71,7 +98,11 @@
               <a
                 class="list-group-item list-group-item-action"
                 data-toggle="list"
+<<<<<<< HEAD
+                href="#delete-account"
+=======
                 href="#"
+>>>>>>> dc3238daf0c25b916f0805b9f19d1e9044759d24
                 role="tab"
               >
                 Delete account
@@ -218,9 +249,136 @@
                 </div>
               </div>
             </div>
+<<<<<<< HEAD
+            <div class="tab-pane fade" id="booking" role="tabpanel">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Booking List</h5>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Booking ID</th>
+                        <th>Location</th>
+                        <th>Duration of Stay</th>
+                        <th>Date</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Paris</td>
+                        <td>5 nights</td>
+                        <td>2023-05-15</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>London</td>
+                        <td>3 nights</td>
+                        <td>2023-05-16</td>
+                      </tr>
+                      <!-- Add more rows for additional bookings -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="email-notifications" role="tabpanel">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Email Notifications</h5>
+                  <form>
+                    <div class="form-group">
+                      <label for="inputEmail">Email Address</label>
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="inputEmail"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="inputEnableNotifications">Enable Notifications</label>
+                      <div class="form-check">
+                        <input
+                          type="checkbox"
+                          class="form-check-input"
+                          id="inputEnableNotifications"
+                        />
+                        <label class="form-check-label" for="inputEnableNotifications">Yes, enable email notifications</label>
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                      Save Changes
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="itinerary" role="tabpanel">
+              <div class="popup-box">
+                <div class="popup">
+                  <div class="content">
+                    <header>
+                      <p></p>
+                      <i class="uil uil-times"></i>
+                    </header>
+                    <form action="#">
+                      <div class="row title">
+                        <label>Title</label>
+                        <input type="text" spellcheck="false">
+                      </div>
+                      <div class="row description">
+                        <label>Description</label>
+                        <textarea spellcheck="false"></textarea>
+                      </div>
+                      <button></button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="wrapper">
+                <li class="add-box">
+                  <div class="icon"><i class="uil uil-plus"></i></div>
+                  <p>Add new Itinerary</p>
+                </li>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="delete-account" role="tabpanel">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Delete Account</h5>
+                  <form>
+                    <div class="form-group">
+                      <label for="inputPassword">Password</label>
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="inputPassword"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="inputConfirmation">Confirmation</label>
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="inputConfirmation"
+                      />
+                    </div>
+                    <button type="submit" class="btn btn-danger">
+                      Delete Account
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+=======
+>>>>>>> dc3238daf0c25b916f0805b9f19d1e9044759d24
           </div>
         </div>
       </div>
     </div>
+<<<<<<< HEAD
+    <script src="static/js/add_itinerary.js"></script>
+=======
+>>>>>>> dc3238daf0c25b916f0805b9f19d1e9044759d24
   </body>
 </html>
