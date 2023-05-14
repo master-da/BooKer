@@ -36,7 +36,9 @@ def hotel_search():
 
 def hotel_book():
     url = 'http://' + host + '/hotel?fsq_id=4c7d0128247cb60c0b905f5e'
-    data={"book": "Book", "check_in": "2020-12-12", "check_out": "2020-12-13", "adults": "2", "children": "1", "room": "1"}
+    data={"book": "Book", "check_in": "2020-12-12", 
+          "check_out": "2020-12-13", "adults": "2", 
+          "children": "1", "room": "1"}
     login_success()
     response = requests.post(url, data=data)
     assert response.status_code == 200
@@ -44,7 +46,9 @@ def hotel_book():
 
 def profile_edit():
     url = 'http://' + host + '/profile'
-    data={"profile": "profile", "test": "test", "inputUsername": "test-changed", "id": "5", "email": "mail@outlook.com"}
+    data={"profile": "profile", "test": "test", 
+          "inputUsername": "test-changed", "id": "5", 
+          "email": "mail@outlook.com"}
     login_success()
     requests.post(url, data=data)
     user = UserTable().getUserFromEmail(data['email'])
